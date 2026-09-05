@@ -7,7 +7,7 @@
 <title>Trung tâm Phục vụ hành chính công xã Vĩnh Bảo</title>
 <style>
 :root{--blue:#082f78;--blue2:#0d489d;--red:#cf0a12;--red2:#b70008;--gold:#e39700;--green:#078132;--ink:#16181d;--muted:#656a73;--line:#dadde3;--scale:1}
-*{box-sizing:border-box}html{font-size:calc(16px*var(--scale));scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}
+*{box-sizing:border-box}html{font-size:calc(16px*var(--scale));scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{cursor:pointer}.ui-icon{width:1em;height:1em;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.feature-svg{width:42px;height:42px;stroke-width:1.9}.stat-svg{width:42px;height:42px;stroke-width:1.9}.footer-svg{width:29px;height:29px;stroke-width:1.8}
 .app{min-height:100vh;display:flex;flex-direction:column}.page{flex:1}.view{display:none}.view.on{display:block}
 .header{background:#fff}.header-top{height:104px;max-width:1536px;margin:auto;padding:10px 50px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center;gap:18px;min-width:0}.brand-logo{width:98px;height:84px;flex:0 0 98px;background:url("https://dichthuatdoingoai.hatinh.gov.vn/media/k2/items/cache/211fb1d06f9479a7650fc3bb47b93c8b_M.jpg") center/contain no-repeat}.brand-copy strong{display:block;color:#062d7c;font-size:24px;font-weight:900;line-height:1.15;letter-spacing:-.02em}.brand-copy strong span{display:block}.brand-copy small{display:block;margin-top:5px;font-size:17px;text-transform:uppercase;color:#242424}.tools{display:flex;align-items:center;gap:18px}.fonts{display:flex;align-items:center;gap:9px}.fonts button{min-width:30px;height:32px;border:0;background:transparent}.fonts button:nth-child(2){font-weight:800;text-decoration:underline;text-decoration-color:#051d73;text-decoration-thickness:2px;text-underline-offset:5px;color:#051d73}.vline{width:1px;height:34px;background:#c8ccd3}.login{display:flex;align-items:center;gap:10px;font-size:16px}.login .user{width:34px;height:34px;border:2px solid #061b7b;border-radius:50%;display:grid;place-items:center;color:#061b7b;font-size:18px}
 .nav{height:46px;border-top:1px solid #e4e6ea;border-bottom:1px solid #e4e6ea;background:#fff}.navin{max-width:1536px;height:100%;margin:auto;padding:0 50px;display:flex;align-items:stretch;gap:20px}.navbtn{position:relative;border:0;background:transparent;padding:0 25px;color:#111;font-size:15px;font-weight:500;display:flex;align-items:center;gap:8px;white-space:nowrap}.navbtn.on{color:#d20b12;font-weight:700}.navbtn.on:after{content:"";position:absolute;left:8px;right:8px;bottom:-1px;height:4px;background:#ed1018}
@@ -34,11 +34,11 @@
     <div class="tools">
       <div class="fonts"><button onclick="scale(.94)">A-</button><button onclick="scale(1)">A</button><button onclick="scale(1.06)">A+</button></div>
       <span class="vline"></span>
-      <button class="login" data-go="login" style="border:0;background:transparent"><span class="user">♙</span>Đăng nhập</button>
+      <button class="login" data-go="login" style="border:0;background:transparent"><span class="user"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20c.7-4 3-6 6.5-6s5.8 2 6.5 6"/></svg></span>Đăng nhập</button>
     </div>
   </div>
   <nav class="nav"><div class="navin">
-    <button class="navbtn on" data-go="home">⌂ <span>Trang chủ</span></button>
+    <button class="navbtn on" data-go="home"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5M9.5 20v-6h5v6"/></svg><span>Trang chủ</span></button>
     <button class="navbtn" data-go="tthc">Thủ tục hành chính</button>
     <button class="navbtn" data-go="lookup">Tra cứu hồ sơ</button>
     <button class="navbtn" data-go="guide">Hướng dẫn</button>
@@ -51,27 +51,27 @@
   <div class="hero"><div class="hero-inner">
     <h1>HÀNH CHÍNH PHỤC VỤ</h1>
     <div class="sub">Công khai – Minh bạch – Thuận tiện</div>
-    <form id="heroSearch" class="search"><span class="mag">⌕</span><input id="heroQ" placeholder="Tìm kiếm thủ tục hành chính" aria-label="Tìm kiếm thủ tục hành chính"></form>
+    <form id="heroSearch" class="search"><span class="mag"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></span><input id="heroQ" placeholder="Tìm kiếm thủ tục hành chính" aria-label="Tìm kiếm thủ tục hành chính"></form>
     <div class="hero-actions">
-      <button class="hero-btn blue" data-go="lookup"><span class="ico">▧</span> Tra cứu hồ sơ</button>
-      <a class="hero-btn red" href="https://motcua.vnptsme.vn/" target="_blank" rel="noreferrer"><span class="ico">⊞</span> Nộp hồ sơ trực tuyến</a>
+      <button class="hero-btn blue" data-go="lookup"><span class="ico"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.8h8l4 4V13"/><path d="M14 2.8v4h4M6 2.8v18.4h7"/><circle cx="17.2" cy="17.2" r="3.2"/><path d="m19.6 19.6 2 2"/></svg></span> Tra cứu hồ sơ</button>
+      <a class="hero-btn red" href="https://motcua.vnptsme.vn/" target="_blank" rel="noreferrer"><span class="ico"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.8h8l4 4v6.4"/><path d="M14 2.8v4h4M6 2.8v18.4h7"/><circle cx="18" cy="18" r="4"/><path d="M18 15.8v4.4M15.8 18h4.4"/></svg></span> Nộp hồ sơ trực tuyến</a>
     </div>
   </div></div>
 
   <div class="content">
     <div class="features">
-      <button class="feature" data-go="tthc"><span class="feature-icon red">★</span><span class="feature-copy"><strong>51 thủ tục<br>trọng điểm</strong><small>Các thủ tục quan trọng, thiết yếu</small></span><span class="chev">›</span></button>
-      <button class="feature" data-go="lookup"><span class="feature-icon gold">▣</span><span class="feature-copy"><strong>Tra cứu<br>hồ sơ</strong><small>Theo dõi tình trạng xử lý hồ sơ</small></span><span class="chev">›</span></button>
-      <a class="feature" href="https://motcua.vnptsme.vn/" target="_blank" rel="noreferrer"><span class="feature-icon red">▦</span><span class="feature-copy"><strong>Dịch vụ công<br>trực tuyến</strong><small>Nộp hồ sơ, thanh toán trực tuyến</small></span><span class="chev">›</span></a>
-      <button class="feature" data-go="guide"><span class="feature-icon gold">▤</span><span class="feature-copy"><strong>Hướng dẫn người dân</strong><small>Hướng dẫn sử dụng, biểu mẫu, FAQ</small></span><span class="chev">›</span></button>
+      <button class="feature" data-go="tthc"><span class="feature-icon red"><svg class="ui-icon feature-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="6.8"/><path d="m8.3 15.5-1.6 6 5.3-2.8 5.3 2.8-1.6-6"/><path d="m12 6.5 1.1 2.2 2.5.4-1.8 1.8.4 2.5-2.2-1.2-2.2 1.2.4-2.5-1.8-1.8 2.5-.4z"/></svg></span><span class="feature-copy"><strong>51 thủ tục<br>trọng điểm</strong><small>Các thủ tục quan trọng, thiết yếu</small></span><span class="chev">›</span></button>
+      <button class="feature" data-go="lookup"><span class="feature-icon gold"><svg class="ui-icon feature-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h7l2 2h9v9.8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="16.5" cy="15.5" r="3.2"/><path d="m19 18 2.3 2.3"/></svg></span><span class="feature-copy"><strong>Tra cứu<br>hồ sơ</strong><small>Theo dõi tình trạng xử lý hồ sơ</small></span><span class="chev">›</span></button>
+      <a class="feature" href="https://motcua.vnptsme.vn/" target="_blank" rel="noreferrer"><span class="feature-icon red"><svg class="ui-icon feature-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="3.5" width="19" height="14" rx="1.5"/><path d="M8 21h8M12 17.5V21"/><circle cx="12" cy="10.5" r="4"/><path d="M8 10.5h8M12 6.5a6.5 6.5 0 0 1 0 8M12 6.5a6.5 6.5 0 0 0 0 8"/></svg></span><span class="feature-copy"><strong>Dịch vụ công<br>trực tuyến</strong><small>Nộp hồ sơ, thanh toán trực tuyến</small></span><span class="chev">›</span></a>
+      <button class="feature" data-go="guide"><span class="feature-icon gold"><svg class="ui-icon feature-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4.5h6.2A2.8 2.8 0 0 1 12 7.3V20a3.2 3.2 0 0 0-3.2-3.2H3z"/><path d="M21 4.5h-6.2A2.8 2.8 0 0 0 12 7.3V20a3.2 3.2 0 0 1 3.2-3.2H21z"/></svg></span><span class="feature-copy"><strong>Hướng dẫn người dân</strong><small>Hướng dẫn sử dụng, biểu mẫu, FAQ</small></span><span class="chev">›</span></button>
     </div>
 
     <div class="home-grid">
       <div>
         <div class="stats">
-          <div class="stat"><span class="stat-icon red">▤</span><div class="stat-copy"><strong class="stat-num red">383</strong><b>TTHC</b><small>Tổng số thủ tục hành chính</small></div></div>
-          <div class="stat"><span class="stat-icon gold">↗</span><div class="stat-copy"><strong class="stat-num gold">96,39%</strong><b class="gold">trực tuyến</b><small>Tỷ lệ hồ sơ tiếp nhận trực tuyến</small></div></div>
-          <div class="stat"><span class="stat-icon green">✓</span><div class="stat-copy"><strong class="stat-status">Đúng hạn<br>và trước hạn</strong><small>Tỷ lệ giải quyết hồ sơ</small></div></div>
+          <div class="stat"><span class="stat-icon red"><svg class="ui-icon stat-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h8"/></svg></span><div class="stat-copy"><strong class="stat-num red">383</strong><b>TTHC</b><small>Tổng số thủ tục hành chính</small></div></div>
+          <div class="stat"><span class="stat-icon gold"><svg class="ui-icon stat-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V13h3v7M10.5 20V9h3v11M17 20V5h3v15"/><path d="m4 9 5-4 4 2 7-5"/></svg></span><div class="stat-copy"><strong class="stat-num gold">96,39%</strong><b class="gold">trực tuyến</b><small>Tỷ lệ hồ sơ tiếp nhận trực tuyến</small></div></div>
+          <div class="stat"><span class="stat-icon green"><svg class="ui-icon stat-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m7.5 12.2 3 3.1 6.4-7"/></svg></span><div class="stat-copy"><strong class="stat-status">Đúng hạn<br>và trước hạn</strong><small>Tỷ lệ giải quyết hồ sơ</small></div></div>
         </div>
         <div class="info-grid">
           <section class="news">
@@ -111,10 +111,10 @@
 </main>
 
 <footer class="footer"><div class="footin">
-  <div class="fblock"><span class="ficon">📍</span><div><strong>UBND XÃ VĨNH BẢO – THÀNH PHỐ HẢI PHÒNG</strong><span>Địa chỉ: Đường 20/8, xã Vĩnh Bảo, thành phố Hải Phòng</span></div></div>
-  <a class="fblock" href="mailto:Vinhbao@haiphong.gov.vn"><span class="ficon">✉</span><span>Email: Vinhbao@haiphong.gov.vn</span></a>
-  <a class="fblock" href="tel:0823919686"><span class="ficon">☎</span><span>Điện thoại: 0823.919.686</span></a>
-  <button class="mobilebtn"><span class="micon">▯</span><span>Giao diện<br>di động</span></button>
+  <div class="fblock"><span class="ficon"><svg class="ui-icon footer-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.1 7-13a7 7 0 1 0-14 0c0 6.9 7 13 7 13Z"/><circle cx="12" cy="9" r="2.4"/></svg></span><div><strong>UBND XÃ VĨNH BẢO – THÀNH PHỐ HẢI PHÒNG</strong><span>Địa chỉ: Đường 20/8, xã Vĩnh Bảo, thành phố Hải Phòng</span></div></div>
+  <a class="fblock" href="mailto:Vinhbao@haiphong.gov.vn"><span class="ficon"><svg class="ui-icon footer-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1.5"/><path d="m3.5 6.2 8.5 7 8.5-7"/></svg></span><span>Email: Vinhbao@haiphong.gov.vn</span></a>
+  <a class="fblock" href="tel:0823919686"><span class="ficon"><svg class="ui-icon footer-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5 10 7l-2 2.5c1.7 3.7 4.3 6.3 8 8l2.5-2 3.5 3c-1 2.4-3 3.3-5.2 2.5C10 18.7 5.3 14 3 7.2 2.2 5 4.2 4 7 3.5Z"/></svg></span><span>Điện thoại: 0823.919.686</span></a>
+  <button class="mobilebtn"><span class="micon"><svg class="ui-icon footer-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="1.5"/><path d="M10 5h4M11.5 18.5h1"/></svg></span><span>Giao diện<br>di động</span></button>
 </div></footer>
 </div>
 
