@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Biểu trưng hành chính phục vụ">
+<defs><linearGradient id="r" x1="0" x2="1"><stop stop-color="#d80000"/><stop offset="1" stop-color="#f02424"/></linearGradient></defs>
+<g fill="url(#r)" transform="translate(60 60)">
+<rect x="-13" y="-55" width="26" height="47" rx="12" transform="rotate(0)"/>
+<rect x="-13" y="-55" width="26" height="47" rx="12" transform="rotate(72)"/>
+<rect x="-13" y="-55" width="26" height="47" rx="12" transform="rotate(144)"/>
+<rect x="-13" y="-55" width="26" height="47" rx="12" transform="rotate(216)"/>
+<rect x="-13" y="-55" width="26" height="47" rx="12" transform="rotate(288)"/>
+<circle r="22" fill="#fff"/><path d="M0-16 4.8-5h12L7 2l4 12-11-7-11 7 4-12-9.8-7h12z" fill="#d80000"/>
+</g></svg>
