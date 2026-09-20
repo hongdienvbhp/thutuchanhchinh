@@ -29,5 +29,11 @@ async function renderCanonicalPriorityView() {
 }
 
 renderCanonicalPriorityView().catch(error => {
-  console.error("Không tải được canonical TTHC; giữ giao diện fallback.", error);
+  console.error("Không tải được canonical TTHC.", error);
+  const container = document.querySelector(".container");
+  const heading = document.querySelector("h1");
+  if (heading) heading.textContent = "Chưa tải được dữ liệu thủ tục hành chính";
+  if (container) {
+    container.innerHTML = '<p class="canonical-error">Không thể tải nguồn dữ liệu canonical. Vui lòng thử lại sau; trang không hiển thị dữ liệu cũ thay thế.</p>';
+  }
 });
