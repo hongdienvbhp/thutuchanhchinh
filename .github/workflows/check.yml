@@ -19,3 +19,5 @@ jobs:
           node-version: '22'
       - name: Validate static entrypoints
         run: node scripts/validate-static-site.mjs
+      - name: Validate canonical view and reject private Master
+        run: node scripts/check-canonical-view.mjs
