@@ -70,3 +70,5 @@ Trước mỗi work package, executor phải tối ưu context/test/review theo 
 - Chat Web review chỉ bắt buộc cho architecture, security/PII, schema/migration, production, cross-repo, CI không rõ/fail, thay đổi lớn hoặc khi người dùng yêu cầu.
 - Linear quản lý portfolio/cross-repo; GitHub Issue/PR quản lý work package kỹ thuật. Không nhân đôi tracker.
 - Handoff chỉ cần HEAD/branch, Changes, Tests/CI, Blockers, NEXT_SAFE_ACTION; không chép lại toàn bộ lịch sử chat.
+- ChatWeb phân tích/chốt work package; ChatWork/ChatCode thực thi với context tối thiểu đã kiểm chứng.
+- Repository này chỉ là view/filter trên `BangNiemYetVinhBao/data/thu-tuc.json`; cấm lưu Master TTHC riêng.
