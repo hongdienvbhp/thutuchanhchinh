@@ -16,6 +16,20 @@ const source = await readFile("canonical-view.js", "utf8");
 for (const required of ["BangNiemYetVinhBao/main/data/thu-tuc.json", "dataset_version", "source_commit", "priority51"]) {
   if (!source.includes(required)) throw new Error(`Canonical view thiếu ${required}`);
 }
+const linkSafetyChecks = [
+  ["UUID được đếm trước khi dùng", /formalityIdCounts/],
+  ["chỉ dùng UUID duy nhất", /formalityIdCounts\.get\(formalityId\) === 1/],
+  ["tôn trọng keyword fallback đã xác minh", /verified_keyword_fallback/],
+  ["ưu tiên URL fallback canonical", /item\.dvcKeywordUrl/],
+  ["fallback theo mã TTHC khi URL fallback vắng mặt", /keyword=\$\{encodeURIComponent\(code\)\}/],
+  ["escape href khi render HTML", /href="\$\{escapeHtml\(href\)\}"/],
+];
+for (const [label, pattern] of linkSafetyChecks) {
+  if (!pattern.test(source)) throw new Error(`Canonical view thiếu bảo vệ liên kết: ${label}`);
+}
+if (/const href = item\.formalityId[\s\S]{0,250}:\s*"#"/.test(source)) {
+  throw new Error("Canonical view không được dùng href '#' khi thiếu formalityId");
+}
 const index = await readFile("index.html", "utf8");
 if (/<div class="card">/i.test(index) || /formalityId=/i.test(index)) {
   throw new Error("index.html còn chứa danh mục TTHC hard-code; consumer phải chỉ render từ canonical");
