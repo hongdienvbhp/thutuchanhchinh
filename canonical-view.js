@@ -20,11 +20,41 @@ async function renderCanonicalPriorityView() {
   version.style.textAlign = "center";
   version.textContent = `Dữ liệu: ${data.dataset_version} · nguồn ${data.source_commit.slice(0, 12)}`;
   document.querySelector("h1").after(version);
+  // Do not let a duplicated/stale UUID route two distinct procedure codes to one record.
+  const formalityIdCounts = new Map();
+  for (const item of rows) {
+    const formalityId = String(item.formalityId || "").trim();
+    if (formalityId) formalityIdCounts.set(formalityId, (formalityIdCounts.get(formalityId) || 0) + 1);
+  }
+  const keywordFallbackHref = item => {
+    const code = String(item.ma || "").trim();
+    const fallback = String(item.dvcKeywordUrl || "").trim();
+    if (fallback) {
+      try {
+        const url = new URL(fallback);
+        if (
+          url.origin === "https://dichvucong.gov.vn" &&
+          url.pathname === "/tim-kiem-thu-tuc-hanh-chinh" &&
+          url.searchParams.get("keyword") === code
+        ) return url.href;
+      } catch {
+        // Invalid/non-canonical link falls through to a deterministic code search.
+      }
+    }
+    return `https://dichvucong.gov.vn/tim-kiem-thu-tuc-hanh-chinh?keyword=${encodeURIComponent(code)}`;
+  };
+  const procedureHref = item => {
+    const formalityId = String(item.formalityId || "").trim();
+    const mappingStatus = String(item.priority51MappingStatus || "").toLowerCase();
+    const forcedKeywordFallback = mappingStatus === "verified_keyword_fallback";
+    if (formalityId && formalityIdCounts.get(formalityId) === 1 && !forcedKeywordFallback) {
+      return `https://dichvucong.gov.vn/tim-kiem-thu-tuc-hanh-chinh?formalityId=${encodeURIComponent(formalityId)}`;
+    }
+    return keywordFallbackHref(item);
+  };
   container.innerHTML = rows.map((item, index) => {
-    const href = item.formalityId
-      ? `https://dichvucong.gov.vn/tim-kiem-thu-tuc-hanh-chinh?formalityId=${encodeURIComponent(item.formalityId)}`
-      : "#";
-    return `<div class="card"><div class="number-tag">${index + 1}</div><a href="${href}" target="_blank" rel="noopener noreferrer" class="btn-link" data-code="${escapeHtml(item.ma)}">${escapeHtml(item.ten)}</a></div>`;
+    const href = procedureHref(item);
+    return `<div class="card"><div class="number-tag">${index + 1}</div><a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer" class="btn-link" data-code="${escapeHtml(item.ma)}">${escapeHtml(item.ten)}</a></div>`;
   }).join("");
 }
 
